@@ -241,33 +241,40 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 0.3s;
 
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      display: none;
-      left: 0;
+      right: 0;
+      transition: width 0.3s, background 0.3s;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        left: 0;
         right: 0;
-        background-color: $c-dark;
+        background-color: $c-purple;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        left: 0;
         right: 0;
-        background-color: $c-dark;
+        background-color: $c-purple;
       }
     }
 
     &.active {
       &::after {
-        display: block;
+        width: 100%;
+      }
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+        right: auto;
+        left: 0;
+        background-color: $c-purple;
       }
     }
 
@@ -275,11 +282,6 @@
     &:focus {
       color: $c-purple;
       outline: none;
-
-      &::after {
-        opacity: 1;
-        background-color: $c-purple;
-      }
     }
   }
 }
