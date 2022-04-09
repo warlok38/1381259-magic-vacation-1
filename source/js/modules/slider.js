@@ -79,6 +79,7 @@ export default () => {
         },
         observer: true,
         observeParents: true,
+        speed: 0,
       });
     }
   };
