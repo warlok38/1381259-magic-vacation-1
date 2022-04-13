@@ -56,7 +56,8 @@
 
 .form__field {
   flex: none;
-  padding: 0 5.6rem;
+  padding: 0;
+  width: 0;
   height: 6rem;
   text-transform: uppercase;
   font: inherit;
@@ -66,15 +67,8 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  animation: appearFromRight 0.5s forwards;
-  @keyframes appearFromRight {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
-  }
+  transition-property: width, padding;
+  transition-duration: 0.5s, 0.5s;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -98,6 +92,12 @@
     height: 4rem;
     font-size: 1.6rem;
   }
+}
+
+.screen--game.active .form__field {
+  width: 100%;
+  padding: 0 5.6rem;
+  transition-delay: 0s, 0.25s;
 }
 
 .form__button {
