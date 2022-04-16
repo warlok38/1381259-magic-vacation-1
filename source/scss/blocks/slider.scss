@@ -276,3 +276,35 @@
     }
   }
 }
+
+.swiper-slide p {
+  transform: translateX(4rem);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+  @media (max-width: $tablet) {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+.swiper-slide {
+  &-active p {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.3s;
+  }
+  &-next p {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.5s;
+  }
+
+  @media (max-width: $tablet) {
+    &-active p,
+    &-next p {
+      transform: none;
+      opacity: 1;
+      transition: none;
+    }
+  }
+}
