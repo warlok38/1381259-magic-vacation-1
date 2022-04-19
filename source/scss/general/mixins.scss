@@ -58,3 +58,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin loadTransition {
+  transition-property: transform, opacity;
+  transition-duration: 0.4s, 0.8s;
+  transition-timing-function: cubic-bezier(0.44, 1.1, 0.8, 1);
+}
