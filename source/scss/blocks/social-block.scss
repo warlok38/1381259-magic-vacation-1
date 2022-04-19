@@ -36,6 +36,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transform: translate(-50%, -50%) scale(0);
     transition: transform 0.3s;
   }
 
@@ -50,7 +51,7 @@
   .social-block--active & {
     color: $c-purple;
 
-    &::before {
+    body.loaded &::before {
       transform: scale(1.1247) translate(-44%, -44%);
     }
   }
@@ -87,6 +88,10 @@
       border-color: $c-purple;
     }
   }
+}
+
+body.loaded .social-block__toggler::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .social-block__list {
