@@ -1,10 +1,12 @@
 .page-header {
+  @include loadTransition;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -19,6 +21,10 @@
   }
 }
 
+body.loaded .page-header {
+  opacity: 1;
+}
+
 .page-header__wrapper {
   @include container;
   display: flex;
@@ -28,6 +34,7 @@
 
 .page-header__logo {
   @include hover;
+  @include loadTransition;
   position: relative;
   flex: none;
   top: -0.5rem;
@@ -35,6 +42,7 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-1em);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -51,6 +59,10 @@
     .page-header--menu-opened & {
       color: $c-dark;
     }
+  }
+
+  body.loaded &.page-header__logo {
+    transform: translateX(0);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
@@ -266,7 +278,9 @@
 
     &.active {
       &::after {
-        width: 100%;
+        width: 0;
+        right: auto;
+        left: 0;
       }
     }
     &:hover {
@@ -284,6 +298,10 @@
       outline: none;
     }
   }
+}
+
+body.loaded .page-header__menu a.active::after {
+  width: 100%;
 }
 
 .page-header__social {
