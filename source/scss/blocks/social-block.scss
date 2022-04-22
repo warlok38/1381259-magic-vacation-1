@@ -92,6 +92,7 @@
 
 body.loaded .social-block__toggler::before {
   transform: translate(-50%, -50%) scale(1);
+  transition-timing-function: cubic-bezier(0.52, 1.65, 0.76, 1.27);
 }
 
 .social-block__list {
