@@ -361,3 +361,17 @@ body.loaded .screen__footer {
 .screen--rules {
   background-color: $c-dark;
 }
+
+.content-filling {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: $c-dark;
+  z-index: 9;
+}
+
+.content-filling--fill {
+  top: 0;
+  transition: top 0.4s;
+}
