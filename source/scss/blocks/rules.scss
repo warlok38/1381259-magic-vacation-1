@@ -153,12 +153,11 @@
     padding-left: 5rem;
     font-size: 1.2rem;
   }
-
   &::before {
     content: counter(li);
     counter-increment: li;
     position: absolute;
-    top: 0;
+    top: 4px;
     left: 0;
     width: 4.5rem;
     height: 4.5rem;
@@ -205,6 +204,7 @@
   }
 
   p {
+    padding-top: 2px;
     margin: 0;
     opacity: 0;
     animation: textAppear 0.5s cubic-bezier(0.2, 0.5, 0.2, 0.8) forwards;
