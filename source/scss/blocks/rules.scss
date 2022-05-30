@@ -117,6 +117,16 @@
   }
 }
 
+.rules__list .rules__item:nth-child(2)::before {
+  animation-delay: 250ms;
+}
+.rules__list .rules__item:nth-child(3)::before {
+  animation-delay: 500ms;
+}
+.rules__list .rules__item:nth-child(4)::before {
+  animation-delay: 750ms;
+}
+
 .rules__item {
   position: relative;
   margin: 0 0 6.2rem;
@@ -143,12 +153,11 @@
     padding-left: 5rem;
     font-size: 1.2rem;
   }
-
   &::before {
     content: counter(li);
     counter-increment: li;
     position: absolute;
-    top: 0;
+    top: 4px;
     left: 0;
     width: 4.5rem;
     height: 4.5rem;
@@ -159,6 +168,23 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    color: transparent;
+    transform: scale(0);
+    animation: counterAppear 0.3s cubic-bezier(0.3, 1.2, 0.7, 1.4) forwards;
+
+    @keyframes counterAppear {
+      0% {
+        transform: scale(0);
+        color: transparent;
+      }
+      40% {
+        color: transparent;
+      }
+      100% {
+        color: #fff;
+        transform: scale(1);
+      }
+    }
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -178,7 +204,25 @@
   }
 
   p {
+    padding-top: 2px;
     margin: 0;
+    opacity: 0;
+    animation: textAppear 0.5s cubic-bezier(0.2, 0.5, 0.2, 0.8) forwards;
+
+    @keyframes textAppear {
+      0% {
+        transform: translateX(15px);
+        opacity: 0;
+      }
+      40% {
+        transform: translateX(15px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
@@ -209,5 +253,41 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     bottom: 2rem;
     right: 1.5rem;
+  }
+}
+
+.rules__link span {
+  opacity: 0;
+  animation: buttonTextAppear 0.25s forwards;
+  animation-delay: 1.15s;
+
+  @keyframes buttonTextAppear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.rules__link.btn::before {
+  animation: buttonAppear 0.3s forwards;
+  animation-delay: 0.95s;
+  opacity: 0;
+
+  @keyframes buttonAppear {
+    0% {
+      opacity: 1;
+      left: 84%;
+      // transform: translate(-50%, -50%);
+      width: 34%;
+    }
+    100% {
+      left: 50%;
+      opacity: 1;
+      // transform: translate(-50%, -50%);
+      width: 100%;
+    }
   }
 }
