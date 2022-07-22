@@ -422,9 +422,13 @@
       <div class="screen__wrapper">
         <div class="result result--prize">
           <div class="result__image">
-            <picture>
-              <source srcset="img/result2-mob.png 1x, img/result2-mob@2x.png 2x" media="(max-width: 768px) and (orientation: portrait)">
-              <img src="img/result2.png" srcset="img/result2@2x.png 2x" alt="">
+            <picture class="result__image-picture--suitcase">
+              <source srcset="img/module-2/win-suitcase/suitcase.png 1x, img/module-2/win-suitcase/suitcase.png 2x" media="(max-width: 768px) and (orientation: portrait)">
+              <img src="img/module-2/win-suitcase/suitcase.png" alt="" class="result__image--suitcase">
+            </picture>
+            <picture class="result__image-picture--flamingo">
+              <source srcset="img/module-2/win-suitcase/flamingo.png 1x, img/module-2/win-suitcase/flamingo.png 2x" media="(max-width: 768px) and (orientation: portrait)">
+              <img src="img/module-2/win-suitcase/flamingo.png" alt="" class="result__image--flamingo">
             </picture>
           </div>
           <h2 class="result__title">
@@ -456,8 +460,10 @@
           <div class="result__form">
             <form action="#" method="post" class="form form--result">
               <label for="email-field2" class="form__label">зарегистрируй результат</label>
-              <input type="email" class="form__field" id="email-field2" placeholder="e-mail для регистации результата и получения приза" required>
-              <button class="form__button btn">
+              <div class="form__field-wrapper">
+                <input type="email" class="form__field" id="email-field2" placeholder="e-mail для регистации результата и получения приза" required>
+              </div>
+                <button class="form__button btn">
                 отправить
                 <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path stroke="currentColor" stroke-width="2" d="M9 19V1"/>
